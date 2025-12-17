@@ -1,0 +1,95 @@
+====
+pspy
+====
+.. inclusion-marker-do-not-remove
+
+``pspy`` is a cosmology code for calculating CMB power spectra and covariance matrices. See the
+python example notebooks for an introductory set of examples on how to use the package.
+
+.. image:: https://img.shields.io/pypi/v/pspy.svg?style=flat
+   :target: https://pypi.python.org/pypi/pspy/
+.. image:: https://img.shields.io/badge/license-BSD-yellow
+   :target: https://github.com/simonsobs/pspy/blob/master/LICENSE
+.. image:: https://img.shields.io/github/actions/workflow/status/simonsobs/pspy/testing.yml?branch=master
+   :target: https://github.com/simonsobs/pspy/actions?query=workflow%3ATesting
+.. image:: https://readthedocs.org/projects/pspy/badge/?version=latest
+   :target: https://pspy.readthedocs.io/en/latest/?badge=latest
+.. image:: https://codecov.io/gh/simonsobs/pspy/branch/master/graph/badge.svg?token=HHAJ7NQ5CE
+   :target: https://codecov.io/gh/simonsobs/pspy
+.. image:: https://mybinder.org/badge_logo.svg
+   :target: https://mybinder.org/v2/gh/simonsobs/pspy/master?filepath=docs/source/notebooks/%2Findex.ipynb
+
+* Free software: BSD license
+* ``pspy`` documentation: https://pspy.readthedocs.io.
+* Scientific documentation: https://pspy.readthedocs.io/en/latest/scientific_doc.pdf
+
+
+Installing
+----------
+
+.. code:: shell
+
+    pip install pspy [--user]
+
+You can test your installation by running
+
+.. code:: shell
+
+    test-pspy
+
+If everything goes fine, no errors will occur. Otherwise, you can report your problem on the `Issues
+tracker <https://github.com/simonsobs/pspy/issues>`_.
+
+If you plan to develop ``pspy``, it is better to checkout the latest version by doing
+
+.. code:: shell
+
+    git clone https://github.com/simonsobs/pspy.git /where/to/clone
+
+Once downloaded, you can install using ``pip install .`` inside the project directory. We use the
+``meson`` build system, which should be understood by ``pip`` (it will build in an isolated
+environment).
+
+To run an editable install, you will need to do so in a way that does not have build isolation (as
+the backend build system, ``meson`` and ``ninja``, actually perform micro-builds on usage in this
+case):
+
+Then you can install the ``pspy`` library and its dependencies *via*
+
+.. code:: shell
+
+    pip install --upgrade pip setuptools meson ninja meson-python numpy
+    pip install --no-build-isolation --editable /where/to/clone
+
+The ``-e`` option allow the developer to make changes within the ``pspy`` directory without having
+to reinstall at every changes.
+
+
+Tutorials notebooks
+-------------------
+
+* `Reading, writing and plotting maps  <https://pspy.readthedocs.org/en/latest/notebooks/tutorial_io.html>`_
+* `Generate spin0 and spin2 spectra for CAR  <https://pspy.readthedocs.org/en/latest/notebooks/tutorial_spectra_car_spin0and2.html>`_
+* `Generate spin0 and spin2 spectra for HEALPIX  <https://pspy.readthedocs.org/en/latest/notebooks/tutorial_spectra_healpix_spin0and2.html>`_
+* `Projecting HEALPIX to CAR  <https://pspy.readthedocs.org/en/latest/notebooks/tutorial_projection.html>`_
+* `Compute spectra for standard and pure B modes  <https://pspy.readthedocs.org/en/latest/notebooks/tutorial_purebb.html>`_
+
+Others tutorials can be found under the ``tutorials`` directory.
+
+Dependencies
+------------
+
+* ``Python`` ≥ 3.10
+* ``pixell`` https://pixell.readthedocs.io
+
+
+Authors
+------------
+* `Thibaut Louis <https://thibautlouis.github.io>`_
+* Steve Choi
+* DW Han
+* `Xavier Garrido <https://xgarrido.github.io>`_
+* Sigurd Naess
+* `Adrien La Posta <https://adrien-laposta.github.io>`_
+
+The code is part of `PSpipe <https://github.com/simonsobs/PSpipe>`_ the Simons Observatory power spectrum pipeline.
