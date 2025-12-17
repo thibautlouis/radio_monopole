@@ -1,5 +1,5 @@
 """
-First attempt to compute monopole of radio sources 
+First attempt to compute monopole of radio sources
 """
 
 import numpy as np
@@ -116,7 +116,7 @@ plt.close()
 monopole = monopole_fSmax[-1] # the actual monopole assuming no masking
 
 freq_GHz = np.linspace(1,3000,1000)
-alpha = -0.5
+alpha = -0.7
 mono_radio =   monopole *  (freq_GHz / ref_freq_radio_GHz) ** alpha  # we assume the scaling of monopole is a power law with alpha = -0.5
 
 # other distorsion computed using luca pagano code: https://github.com/paganol/BISOU-sky
@@ -140,7 +140,7 @@ plt.xlabel(r"$\nu$ [GHz]", fontsize=fontsize)
 plt.ylabel(r"$I_{\nu} [Jy . sr^{-1}]$", fontsize=fontsize)
 plt.tick_params(labelsize=labelsize)
 plt.ylim(10**-1,10**5)
-plt.legend(fontsize=labelsize)
+plt.legend(fontsize=12)
 plt.savefig("figs/monopole_vs_freq.png", bbox_inches="tight")
 plt.clf()
 plt.close()
