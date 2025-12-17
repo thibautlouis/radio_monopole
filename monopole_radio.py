@@ -1,3 +1,7 @@
+"""
+First attempt to compute monopole of radio sources 
+"""
+
 import numpy as np
 import pylab as plt
 import os
@@ -123,7 +127,6 @@ nu, relcorr = np.loadtxt("distorsion/relcorr.txt", unpack=True)
 
 colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"]
 
-   
 plt.figure(figsize=(8,6))
 plt.loglog()
 plt.plot(nu,-ydist,'--',lw=1,color=colors[0])
