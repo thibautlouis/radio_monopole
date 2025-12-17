@@ -58,8 +58,6 @@ def get_mean_number_of_source_over_4pi(S, dNdSdOmega, plot_fname=None):
         plt.xlabel(r"$S$ (Flux [Jy])", fontsize=fontsize)
         plt.ylabel(r"$N_{source}$", fontsize=fontsize)
         plt.tick_params(labelsize=labelsize)
-
-            
         plt.savefig(plot_fname, bbox_inches="tight")
         plt.clf()
         plt.close()
@@ -89,7 +87,6 @@ def get_cumulative_monopole(S, dNdSdOmega, plot_fname=None):
     return monopole
 
 
-
 os.makedirs("figs", exist_ok=True)
 
 S, dNdSdOmega = read_tucci_source_distrib(plot_fname=f"figs/source_distrib_radio.png")
@@ -97,7 +94,6 @@ mean_numbers_per_patch = get_mean_number_of_source_over_4pi(S, dNdSdOmega, plot_
 
 Ntot_sources = np.sum(mean_numbers_per_patch)
 print("Total number of radio sources", Ntot_sources)
-
 
 # this get the monopole as a function of a flux cut on the sky, the flux cut can be seen as a masking parameter
 # basically how much do you decrease the monopole if you mask all sources above S_max
@@ -113,13 +109,11 @@ plt.savefig("figs/cumulative_monopole.png", bbox_inches="tight")
 plt.clf()
 plt.close()
 
-
 monopole = monopole_fSmax[-1] # the actual monopole assuming no masking
 
 freq_GHz = np.linspace(1,3000,1000)
 alpha = -0.5
 mono_radio =   monopole *  (freq_GHz / ref_freq_radio_GHz) ** alpha  # we assume the scaling of monopole is a power law with alpha = -0.5
-
 
 # other distorsion computed using luca pagano code: https://github.com/paganol/BISOU-sky
 
@@ -127,8 +121,6 @@ nu, mudist = np.loadtxt("distorsion/mu.txt", unpack=True)
 nu, ydist = np.loadtxt("distorsion/y.txt", unpack=True)
 nu, relcorr = np.loadtxt("distorsion/relcorr.txt", unpack=True)
 
-   
-   
 colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"]
 
    
